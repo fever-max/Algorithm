@@ -9,13 +9,3 @@ class Solution {
 		return answer;
 	}
 }
-
-class Test3 {
-
-	public static void main(String[] args) {
-		Solution obj = new Solution();
-		System.out.println(obj.solution("He11oWor1d", "lloWorl", 2));
-		System.out.println(obj.solution("Program29b8UYP", "merS123", 7));
-	}
-
-}
