@@ -1,15 +1,15 @@
 class Solution {
 	public int solution(int a, int b) {
 		int answer = 0;
-		String num1 = a + "" + b;
-		String num2 = b + "" + a;
+		int num1 = Integer.parseInt(a + "" + b);
+		int num2 = Integer.parseInt(b + "" + a);
 
-		if (Integer.parseInt(num1) > Integer.parseInt(num2)) {
-			answer = Integer.parseInt(num1);
-		} else if (Integer.parseInt(num1) < Integer.parseInt(num2)) {
-			answer = Integer.parseInt(num2);
+		if (num1 > num2) {
+			answer = num1;
+		} else if (num1 < num2) {
+			answer = num2;
 		} else {
-			answer = Integer.parseInt(num1);
+			answer = num1;
 		}
 		return answer;
 	}
