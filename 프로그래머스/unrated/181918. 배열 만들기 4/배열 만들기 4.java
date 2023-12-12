@@ -1,23 +1,19 @@
-import java.util.ArrayList;
+import java.util.Stack;
 
 class Solution {
-	public ArrayList<Integer> solution(int[] arr) {
-		ArrayList<Integer> stk = new ArrayList<>();
-		int i = 0;
+    public Stack<Integer> solution(int[] arr) {
+        Stack<Integer> stk = new Stack<>();
+        int i = 0;
 
-		while (i < arr.length) { // 빈 배열 이라면
-			if (stk.size() == 0) {
-				stk.add(arr[i]);
-				i++;
-			} else if (stk.get(stk.size() - 1) < arr[i]) {
-				// str 마지막 인덱스가 arr[i]보다 작으면
-				stk.add(arr[i]);
-				i++;
-			} else if (stk.get(stk.size() - 1) >= arr[i]) {
-				// str 마지막 인덱스가 arr[i]보다 크거나 같으면
-				stk.remove(stk.size() - 1);
-			}
-		}
-		return stk;
-	}
+        while (i < arr.length) {
+            if (stk.isEmpty() || stk.peek() < arr[i]) {
+                stk.push(arr[i]);
+                i++;
+            } else if (stk.peek() >= arr[i]) {
+                stk.pop();
+            }
+        }
+
+        return stk;
+    }
 }
