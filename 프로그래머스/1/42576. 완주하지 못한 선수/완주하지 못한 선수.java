@@ -1,9 +1,8 @@
 import java.util.HashMap;
-import java.util.Map;
 
 class Solution {
     public String solution(String[] participant, String[] completion) {
-        Map<String, Integer> map = new HashMap<>();
+        HashMap<String, Integer> map = new HashMap<>();
         
         // 참가자 카운트 (동명이인일시 +1)
         for (String name : participant) {
@@ -15,9 +14,9 @@ class Solution {
             map.put(name, map.get(name) - 1);
         }
         
-        for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            if (entry.getValue() > 0) {
-                return entry.getKey();
+        for (String key : map.keySet()) {
+            if (map.get(key) > 0) {
+                return key;
             }
         }
 
