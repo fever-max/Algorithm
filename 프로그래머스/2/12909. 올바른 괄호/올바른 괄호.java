@@ -1,20 +1,19 @@
 import java.util.*;
 class Solution {
     boolean solution(String s) {
-       Queue<Character> queue = new LinkedList<>();
-    
-    for (char ch : s.toCharArray()) {
-        if (ch == '(') {
-            //'('일 때만 큐에 누적
-            queue.offer(ch);
-        } else if (ch == ')') {
-            if (queue.isEmpty()) {
-                return false; 
+       Stack<Character> stack = new Stack<>();
+        
+        for (char ch : s.toCharArray()) {
+            if (ch == '(') {
+                stack.push(ch);
+            } else if (ch == ')') {
+                if (stack.isEmpty()) {
+                    return false;
+                }
+                stack.pop();
             }
-            // ')'로 짝이 맞을 때만 삭제
-            queue.poll(); 
         }
-    }
-    return queue.isEmpty();
+        
+        return stack.isEmpty(); 
     }
 }
