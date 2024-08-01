@@ -1,27 +1,14 @@
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.*;
 
 class Solution {
     public long solution(long n) {
-        // 자릿수 계산
-        String numberStr = Long.toString(n);
-        int length = numberStr.length();
-        Integer[] digits = new Integer[length];
+        char[] temp = Long.toString(n).toCharArray();
 
-        // 배열 저장
-        for (int i = 0; i < length; i++) {
-            digits[i] = numberStr.charAt(i) - '0';
-        }
+        Arrays.sort(temp);
 
-        // 내림차순 정렬
-        Arrays.sort(digits, Collections.reverseOrder());
+        StringBuilder sb = new StringBuilder();
+        for (char c : temp) sb.append(c);
 
-        // 반환값 설정
-        long sortedNumber = 0;
-        for (int digit : digits) {
-            sortedNumber = sortedNumber * 10 + digit;
-        }
-
-        return sortedNumber;
+        return Long.parseLong(sb.reverse().toString());
     }
 }
