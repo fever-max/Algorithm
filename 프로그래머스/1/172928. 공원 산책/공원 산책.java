@@ -11,6 +11,7 @@ class Solution {
             }
         }
 
+        // 명령 순회
         for (String route : routes) {
             // 방향, 거리, 임시위치 지정
             char dir = route.charAt(0);
